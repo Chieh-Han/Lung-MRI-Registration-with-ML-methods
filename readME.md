@@ -1,7 +1,10 @@
 <h1 align="center">Registration of Lung MRI with Machine Learning Methods</h1>
 
-![VxmOverview](./Images/MyVoxelMorph.png)  
-<center>Overview of the Network Archietecture</center>
+<div align="center">
+  <img src="./Images/MyVoxelMorph.png" alt="VxmOverview" />
+  <br>
+  Overview of the Network Archietecture
+</div> 
 
 # Table of Contents
 * [Introduction](#introduction)
@@ -97,8 +100,11 @@ Quick summary for the results. For more comprehensive analysis and discussion, p
 
 ### Reference Input Image
 
-![Reference_Image](./Images/Reference_Image.png)  
-<center>Reference Input Pair, slice 32 of scan 37 from our test set.</center>  
+<div align="center">
+  <img src="./Images/Reference_Image.png" alt="Reference_Image" />
+  <br>
+  Reference Input Pair, slice 32 of scan 37 from our test set
+</div> 
 
 ### Final Comparison
 
@@ -106,30 +112,42 @@ Quick summary for the results. For more comprehensive analysis and discussion, p
 - We can see here through the grid view, the outline of the lung lines up really well with the fixed image.  
 - Note: The Final ML results here are trained for 5000 epochs
 
-![Final_Comparison](./Images/FINAL_Comparison.png)  
-<center>Side by side comparison of registered image using tradisional methods vs ML methods</center>
+<div align="center">
+  <img src="./Images/FINAL_Comparison.png" alt="Final_Comparison" />
+  <br>
+  Side by side comparison of registered image using tradisional methods vs ML methods
+</div> 
 
 ### Final Scores
 
 - We see here that using NCC loss yields the highest SSIM score for registered image while having the best diffeomophism base on the Jacobian Test.
 
-![Final_Scores](./Images/FINAL_score.png)  
-<center>Performance of each methods</center>
+<div align="center">
+  <img src="./Images/FINAL_score.png" alt="Final_Scores" />
+  <br>
+  Performance of each methods
+</div> 
 
 ### Decision Making
 
 - We dropped MSE Loss due to artifact creation as it is unable to adjust for the contrast and intensity difference between perfusion and morphological MRIs. 
 
-![MSE](./Images/MSE2.png)  
-<center>Using MSE as loss function creates unwanted artifacts</center>  
+<div align="center">
+  <img src="./Images/MSE2.png" alt="MSE" />
+  <br>
+  Using MSE as loss function creates unwanted artifacts
+</div>  
 
 <br>
 <br>
 
 - We chose to add Vector Integration Layer due to its superior diffeomorphism 
 
-![Reg_Field](./Images/Reg_Field.png)  
-<center>Adding the Vector Integration Layer produce way smoother registration field</center>
+<div align="center">
+  <img src="./Images/Reg_Field.png" alt="Reg_Field" />
+  <br>
+  Adding the Vector Integration Layer produces a way smoother registration field
+</div>  
 
 ## References
 
