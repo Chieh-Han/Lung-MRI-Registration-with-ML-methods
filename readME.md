@@ -1,6 +1,6 @@
 <h1 align="center">Registration of Lung MRI with Machine Learning Methods</h1>
 
-![VxmOverview](./MyVoxelMorph.png)  
+![VxmOverview](./Images/MyVoxelMorph.png)  
 <center>Overview of the Network Archietecture</center>
 
 # Table of Contents
@@ -97,7 +97,7 @@ Quick summary for the results. For more comprehensive analysis and discussion, p
 
 ### Reference Input Image
 
-![Reference_Image](./Reference_Image.png)  
+![Reference_Image](./Images/Reference_Image.png)  
 <center>Reference Input Pair, slice 32 of scan 37 from our test set.</center>  
 
 ### Final Comparison
@@ -106,21 +106,21 @@ Quick summary for the results. For more comprehensive analysis and discussion, p
 - We can see here through the grid view, the outline of the lung lines up really well with the fixed image.  
 - Note: The Final ML results here are trained for 5000 epochs
 
-![Final_Comparison](./FINAL_Comparison.png)  
+![Final_Comparison](./Images/FINAL_Comparison.png)  
 <center>Side by side comparison of registered image using tradisional methods vs ML methods</center>
 
 ### Final Scores
 
 - We see here that using NCC loss yields the highest SSIM score for registered image while having the best diffeomophism base on the Jacobian Test.
 
-![Final_Scores](./FINAL_score.png)  
+![Final_Scores](./Images/FINAL_score.png)  
 <center>Performance of each methods</center>
 
 ### Decision Making
 
 - We dropped MSE Loss due to artifact creation as it is unable to adjust for the contrast and intensity difference between perfusion and morphological MRIs. 
 
-![MSE](./MSE2.png)  
+![MSE](./Images/MSE2.png)  
 <center>Using MSE as loss function creates unwanted artifacts</center>  
 
 <br>
@@ -128,8 +128,8 @@ Quick summary for the results. For more comprehensive analysis and discussion, p
 
 - We chose to add Vector Integration Layer due to its superior diffeomorphism 
 
-![Reg_Field](./Reg_Field.png)  
-<center>Addin the Vector Integration Layer produce way smoother registration field</center>
+![Reg_Field](./Images/Reg_Field.png)  
+<center>Adding the Vector Integration Layer produce way smoother registration field</center>
 
 ## References
 
