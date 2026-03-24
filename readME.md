@@ -1,4 +1,8 @@
-<h1 align="center">Registration of Lung MRI with Machine Learning Methods</h1>
+<h1 align="center">
+  Registration of Lung MRI with Machine Learning Methods
+  <br>
+  <small>Bachelor Thesis — Final Grade: 1.0</small>
+</h1>
 
 <div align="center">
   <img src="./Images/MyVoxelMorph.png" alt="VxmOverview" />
@@ -8,6 +12,8 @@
 
 # Table of Contents
 * [Introduction](#introduction)
+* [Disclaimer](#disclaimer)
+* [Background](#background)
 * [Network Archietecture](#network-archietecture)
 * [Experiment Setup](#experiment-setup)
 * [Example Results](#example-results)
@@ -20,8 +26,24 @@ This Research seeks to find a more efficient method for registering different mo
 Since there are existing models such as VoxelMorph, CycleMorph and TransMorph that are all proven to be succesful in registering Brain MRIs, we have chosen to use **VoxelMorph** *[Bal+19]* as a baseline and test its viability with 3D Perfusion and Morphological Lung MRIs.
 
 Due to the limited availibility of Lung images, our network could only be trained on 300 distinct scans. Still, the outcome we produced performs comparable to state-of-the-art registration methods. Regarding the registration duration, traditional methods took between 20s and 350s, while our
-CNN method only required 2s on CPU and even only 0.4s on GPU for the same registration
+CNN method only required 2s on CPU and just 0.4s on GPU for the same registration
 task.
+
+## Disclaimer
+
+**Please note:** This repository is a showcase of my work. Because the original project relies on a CIDS *[Koe+24]* ai-framework developed by IAM-MMS in KIT, this code cannot be compiled or executed directly as-is. 
+
+To demonstrate my implementation, I have:
+* Included my core algorithms in the `src/` directory.
+* Provided structural examples in `mocks/` to show the software architecture and how Voxelmorph *[Bal+19]* is integrated.
+* Included visual results of the working models in the [Example Results](#example-results) section.
+* For the complete thesis, please look in the `docs/` folder.
+
+## Background
+* **Institution:** Karlsruhe Institute of Technology (KIT)
+* **Department:** Mechanical Engineering | Institute for Applied Materials (IAM-MMS)
+* **First Reviewer:** Prof. Dr. rer. nat. Britta Nestler
+* **Supervisor:** Julian Grolig, M.Sc.
 
 ## Network Archietecture 
 We have implemented **VoxelMorph** *[Bal+19]* into the **CIDS framework** *[Koe+24]* with extra
@@ -96,7 +118,7 @@ Elastix - B-Spline Displacement
 
 ## Example Results
 
-Quick summary for the results. For more comprehensive analysis and discussion, please view the thesis.  
+Quick summary for the results. For more comprehensive analysis and discussion, please view my thesis in the `docs/` folder.  
 
 ### Reference Input Image
 
