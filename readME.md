@@ -1,7 +1,6 @@
 <h1 align="center">
   Registration of Lung MRI with Machine Learning Methods
   <br>
-  <small>Bachelor Thesis — Final Grade: 1.0</small>
 </h1>
 
 <div align="center">
