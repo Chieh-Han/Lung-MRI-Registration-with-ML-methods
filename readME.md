@@ -13,20 +13,18 @@
 * [Introduction](#introduction)
 * [Disclaimer](#disclaimer)
 * [Background](#background)
-* [Network Architecture](#network-Architecture)
+* [Network Architecture](#network-architecture)
 * [Experiment Setup](#experiment-setup)
 * [Example Results](#example-results)
 * [References](#references)
 
 ## Introduction
 Welcome to the summary of my Bachelor Thesis on Registration of Lung MRI with ML Methods.  
-This Research seeks to find a more efficient method for registering different modalities of medical images through machine learning networks.   
+This research seeks to find a more efficient method for registering different modalities of medical images through machine learning methods.   
 
-Since there are existing models such as VoxelMorph, CycleMorph and TransMorph that are all proven to be succesful in registering Brain MRIs, we have chosen to use **VoxelMorph** *[Bal+19]* as a baseline and test its viability with 3D Perfusion and Morphological Lung MRIs.
+Since there are existing models such as VoxelMorph, CycleMorph and TransMorph that are all proven to be successful in registering Brain MRIs, we have chosen to use **VoxelMorph** *[Bal+19]* as a baseline and test its viability with 3D Perfusion and Morphological Lung MRIs.
 
-Due to the limited availibility of Lung images, our network could only be trained on 300 distinct scans. Still, the outcome we produced performs comparable to state-of-the-art registration methods. Regarding the registration duration, traditional methods took between 20s and 350s, while our
-CNN method only required 2s on CPU and just 0.4s on GPU for the same registration
-task.
+Despite the limited availability of lung images, with our network trained on only 300 distinct scans, the outcome performs comparable to state-of-the-art registration methods. Regarding the registration duration, traditional methods took between 20s and 350s, while our CNN method only required 2s on CPU and just 0.4s on GPU for the same registration task.
 
 ## Disclaimer
 
@@ -58,17 +56,17 @@ Here we use up-convolutions and activation similar to those in the encoder. Then
 
 - **Skip Connections**: High-resolution, local features from the encoder are concatenated directly with the symmetrical layers in the decoder. This ensures fine anatomical details are preserved during reconstruction.  
 
-- Several Convolution layers are added after the UNet to refine the resolution, extracting 3 featuress to represent a 3D registration field.
+- Several Convolution layers are added after the UNet to refine the resolution, extracting 3 features to represent a 3D registration field.
 
 ### Vector Integration Layer (Optional)
 
 - To ensure the final registration is diffeomorphic, meaning the transformation is smooth and invertible, hence preserving anatomical topology, an optional Vector Integration Layer can be applied to the raw U-Net output. 
 
-- **Guaranteed Reversibility**: This layer model our raw registration field as a flow over time. By integrating this flow (using a scaling and squaring method *[Ars+06]*), the model guarantees a diffeomorphic output. The final image warp is smooth, preserves structural integrity, and fully invertible.
+- **Guaranteed Reversibility**: This layer models our raw registration field as a flow over time. By integrating this flow (using a scaling and squaring method *[Ars+06]*), the model guarantees a diffeomorphic output. The final image warp is smooth, preserves structural integrity, and fully invertible.
 
 ### Spatial Transformation Layer
 
-- **Differentiable Warping**: This layer effectively register our moving image base on the predicted registration field. It is fully differentiable, allowing the entire architecture to be trained end-to-end using standard backpropagation.
+- **Differentiable Warping**: This layer effectively registers our moving image based on the predicted registration field. It is fully differentiable, allowing the entire architecture to be trained end-to-end using standard backpropagation.
 
 ### Loss Functions
 
@@ -82,7 +80,7 @@ Here we use up-convolutions and activation similar to those in the encoder. Then
 
 - **Bi-Directional Loss**: Inspired by CycleMorph's Cycle Loss *[Kim+20]*. Enforces invertibility by calculating loss functions for both the forward and backward transformations. It penalizes the model if reversing the deformation doesn't recreate the original starting image
 
-- **Regularization (Smoothness) Loss**: It acts as a physical constraint to keep the deformation realistic and smooth by preventing the network from aggressively streching the pixels just to force a perfect visual match. 
+- **Regularization (Smoothness) Loss**: It acts as a physical constraint to keep the deformation realistic and smooth by preventing the network from aggressively stretching the pixels just to force a perfect visual match. 
 
 ## Experiment Setup
 
@@ -99,10 +97,10 @@ Initial Alignment: Affinely registered using the ANTs fastaffine function.
 Resizing: Volumes are downsized to 64 x 128 x 128  
 Padding: Native aspect ratios are strictly preserved, with any remaining resolution filled using zero-padding.
 
-- We tested the 3 different losses  
+- We tested 3 different losses  
 Each loss is tested with no modification, addition of Vector Integration Layer or addition of Bi-Directional Loss
 
-- Each set up is trained for 1000 epochs  
+- Each setup is trained for 1000 epochs  
 Batch size of 8   
 Learning rate of $10^{-4}$
 
@@ -129,7 +127,7 @@ Quick summary for the results. For more comprehensive analysis and discussion, p
 
 ### Final Comparison
 
-- We choose the best performing set ups: which are NCC and MI Losses, both with the addition of Vector Integration Layer  
+- We chose the best performing setups: which are NCC and MI Losses, both with the addition of Vector Integration Layer  
 - We can see here through the grid view, the outline of the lung lines up really well with the fixed image.  
 - Note: The Final ML results here are trained for 5000 epochs
 
@@ -141,12 +139,12 @@ Quick summary for the results. For more comprehensive analysis and discussion, p
 
 ### Final Scores
 
-- We see here that using NCC loss yields the highest SSIM score for registered image while having the best diffeomophism base on the Jacobian Test.
+- We see here that using NCC loss yields the highest SSIM score for registered image while having the best diffeomorphism based on the Jacobian Test.
 
 <div align="center">
   <img src="./Images/FINAL_score.png" alt="Final_Scores" />
   <br>
-  Performance of each methods
+  Performance of each method
 </div> 
 
 ### Decision Making
