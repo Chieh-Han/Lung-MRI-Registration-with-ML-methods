@@ -1,27 +1,26 @@
 <h1 align="center">
   Registration of Lung MRI with Machine Learning Methods
   <br>
-  <small>Bachelor Thesis — Final Grade: 1.0</small>
 </h1>
 
 <div align="center">
   <img src="./Images/MyVoxelMorph.png" alt="VxmOverview" />
   <br>
-  Overview of the Network Archietecture
+  Overview of the Network Architecture
 </div> 
 
 # Table of Contents
 * [Introduction](#introduction)
 * [Disclaimer](#disclaimer)
 * [Background](#background)
-* [Network Archietecture](#network-archietecture)
+* [Network Architecture](#network-Architecture)
 * [Experiment Setup](#experiment-setup)
 * [Example Results](#example-results)
 * [References](#references)
 
 ## Introduction
 Welcome to the summary of my Bachelor Thesis on Registration of Lung MRI with ML Methods.  
-This Research seeks to find a more efficient method for registering different modalities of medical images through machine leanring networks.   
+This Research seeks to find a more efficient method for registering different modalities of medical images through machine learning networks.   
 
 Since there are existing models such as VoxelMorph, CycleMorph and TransMorph that are all proven to be succesful in registering Brain MRIs, we have chosen to use **VoxelMorph** *[Bal+19]* as a baseline and test its viability with 3D Perfusion and Morphological Lung MRIs.
 
@@ -45,7 +44,7 @@ To demonstrate my implementation, I have:
 * **First Reviewer:** Prof. Dr. rer. nat. Britta Nestler
 * **Supervisor:** Julian Grolig, M.Sc.
 
-## Network Archietecture 
+## Network Architecture 
 We have implemented **VoxelMorph** *[Bal+19]* into the **CIDS framework** *[Koe+24]* with extra
 functions that improved our model’s performance.  
 
@@ -137,7 +136,7 @@ Quick summary for the results. For more comprehensive analysis and discussion, p
 <div align="center">
   <img src="./Images/FINAL_Comparison.png" alt="Final_Comparison" />
   <br>
-  Side by side comparison of registered image using tradisional methods vs ML methods
+  Side by side comparison of registered image using traditional methods vs ML methods
 </div> 
 
 ### Final Scores
